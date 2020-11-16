@@ -67,4 +67,18 @@ public class PracticeFormTests extends TestBase{
         $x("//td[text()='Address']").parent().shouldHave(text(address));
         $x("//td[text()='State and City']").parent().shouldHave(text(state + " " + city));
     }
+
+    //Тест на то, что обязательные поля выделяются красным, если они не заполнены
+    @Test
+    void doNotFillForm() {
+        open(testURL);
+        submitForm();
+        $("#firstName").shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+        $("#lastName").shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+        $("#genterWrapper .custom-control-label").shouldHave(cssValue("color","rgba(220, 53, 69, 1)"));
+        $("#genterWrapper").$(".custom-control-label", 2).shouldHave(cssValue("color","rgba(220, 53, 69, 1)"));
+        $("#userNumber").shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+    }
+
+
 }
