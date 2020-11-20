@@ -38,7 +38,7 @@ public class PracticeFormTests extends TestBase{
         $("#hobbiesWrapper").$(byText(hobby1)).click();
         $("#hobbiesWrapper").$(byText(hobby2)).click();
 
-        $("#uploadPicture").uploadFile(new File("src/test/java/tests/resources/" + picture));
+        $("#uploadPicture").uploadFile(new File("src/test/java/resources/" + picture));
         $("#currentAddress").val(address);
         $("#state").click();
         $("#stateCity-wrapper").$(byText(state)).click();
